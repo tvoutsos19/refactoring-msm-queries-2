@@ -21,9 +21,12 @@ class Actor < ApplicationRecord
 
 has_many(:characters, { :class_name => "Character", :foreign_key => "actor_id"})
 
-has_many(:characters, { :class_name => "Character", :foreign_key => "movie_id"})
+has_many(:characters_hi, { :class_name => "Character", :foreign_key => "movie_id"})
 
 has_many(:cast, {:through => :characters, :source => :actor})
+
+has_many(:filmography, {:through => :characters, :source=> :movie})
+
 
   # def filmography
   #   array_of_movie_ids = Array.new
